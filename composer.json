@@ -1,0 +1,5 @@
+{
+    "require": {
+        "inacho/php-credit-card-validator": "^1.0"
+    }
+}

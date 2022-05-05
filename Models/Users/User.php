@@ -26,5 +26,14 @@ class User {
 
     }
 
+    public function getOrders($identifier){
+        if(!isset($identifier) || empty($identifier))
+         return null;
+
+        if(is_int($identifier) && is_numeric($identifier)){
+            
+        }
+    }
+
 
 }

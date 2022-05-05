@@ -1,5 +1,12 @@
 {
     "require": {
         "inacho/php-credit-card-validator": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "shop\\models":"PHPSHOP\\Models",
+            "shop\\controllers": "PHPSHOP\\Controllers",
+            "shop\\db": "PHPSHOP\\DB"
+        }
     }
 }

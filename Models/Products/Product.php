@@ -7,6 +7,7 @@ class Product {
     public $description;
     public $price;
     public $status;
+    public $quantityInStock;
 
       /**
      * Undocumented function

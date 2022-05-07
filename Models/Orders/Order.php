@@ -5,6 +5,7 @@ class Order {
     public $totalPrice;
     public $orderLines = array();
     public $status;
+    public $orderDate;
 
 
     /**

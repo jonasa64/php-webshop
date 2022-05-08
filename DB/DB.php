@@ -1,5 +1,7 @@
 <?php 
 
+namespace PHPSHOP\DB;
+
 class DB{
     /**
      * Insert a new DB record

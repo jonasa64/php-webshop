@@ -1,5 +1,7 @@
 <?php 
 
+namespace PHPSHOP\Controllers\Product;
+
 class Product {
     
     public function index() {

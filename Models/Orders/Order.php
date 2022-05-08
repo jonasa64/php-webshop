@@ -35,15 +35,15 @@ class Order {
 
     }
 
-    public function reject(){
+    public function reject(int $id){
 
     }
 
-    public function approve(){
+    public function approve(int $id){
 
     }
 
-    public function cancel(){
+    public function cancel(int $id){
         
     }
 

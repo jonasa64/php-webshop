@@ -1,5 +1,7 @@
 <?php 
 
+namespace PHPSHOP\Models\Users;
+
 class User {
 
     public $id;
@@ -8,13 +10,14 @@ class User {
     public $password;
     public $email;
     public $isAdmin;
+    public $isGuest;
 
 
-    public function login(){
+    public function login(string $email, string $password){
 
     }
 
-    public function register(){
+    public function register(array $data){
 
     }
 
@@ -22,8 +25,7 @@ class User {
 
     }
 
-    private function doesUsersExist(){
-
+    private function doesUsersExist(string $email) {
     }
 
     public function getOrders($identifier){

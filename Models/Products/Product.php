@@ -1,5 +1,7 @@
 <?php 
 
+namespace PHPSHOP\Models\Products;
+
 class Product {
     public $id;
     public $name;

@@ -4,9 +4,9 @@
     },
     "autoload": {
         "psr-4": {
-            "shop\\models":"PHPSHOP\\Models",
-            "shop\\controllers": "PHPSHOP\\Controllers",
-            "shop\\db": "PHPSHOP\\DB"
+            "shop\\models\\":"PHPSHOP\\Models",
+            "shop\\controllers\\": "PHPSHOP\\Controllers",
+            "shop\\db\\": "PHPSHOP\\DB"
         }
     }
 }

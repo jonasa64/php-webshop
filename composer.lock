@@ -55,6 +55,10 @@
                 "laravel",
                 "validator"
             ],
+            "support": {
+                "issues": "https://github.com/inacho/php-credit-card-validator/issues",
+                "source": "https://github.com/inacho/php-credit-card-validator/tree/master"
+            },
             "time": "2015-07-03T19:13:29+00:00"
         }
     ],
@@ -65,5 +69,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

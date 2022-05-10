@@ -1,5 +1,5 @@
 <?php 
-
+namespace PHPSHOP;
 class Router {
 
     public static function parse($url, $request){

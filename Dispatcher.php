@@ -1,4 +1,5 @@
 <?php 
+namespace PHPSHOP;
 
 class Dispatcher{
 
@@ -14,15 +15,23 @@ class Dispatcher{
     }
 
     private function loadController(){
-        $name = $this->request->controller . "Controller";
+        $name = ucfirst($this->request->controller);
 
-        $file = "ROOT" . 'Controllers/' . $name . ".php";
+        $file = ROOT . 'Controllers/' . $name . ".php";
 
         require($file);
 
-        $controler = new $name();
+        $controller = "PHPSHOP\Controllers\\";
 
-        return $controler;
+        $controller .= $name;
+
+        if(class_exists($controller)){
+            $controller = new $controller();
+
+            return $controller;
+        } 
+        return "404";
+           
 
     }
 }

@@ -1,5 +1,5 @@
 <?php 
-
+namespace PHPSHOP;
 class Request {
 
     public $url;

@@ -6,7 +6,8 @@
         "psr-4": {
             "shop\\models\\":"PHPSHOP\\Models",
             "shop\\controllers\\": "PHPSHOP\\Controllers",
-            "shop\\db\\": "PHPSHOP\\DB"
+            "shop\\db\\": "PHPSHOP\\DB",
+            "shop\\": "PHPSHOP"
         }
     }
 }

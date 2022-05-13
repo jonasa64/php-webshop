@@ -3,6 +3,7 @@
 namespace PHPSHOP\Controllers\Products;
 
 use PHPSHOP\Controllers\Controller;
+use PHPSHOP\Models\Products\Product as ProductsProduct;
 
 class Product extends Controller {
 
@@ -13,10 +14,11 @@ class Product extends Controller {
     
     public function index() {
 
-        $sql = "SELECT * FROM products";
+        $sql = "SELECT id FROM products";
         $result = \PHPSHOP\DB\DB::query($sql);
-        //print_r($result->fetch_assoc());
-        $this->renderView("products", $result->fetch_assoc());
+        $productModel = new ProductsProduct();
+       $products =  $productModel->get($result->fetch_assoc());
+        $this->renderView("products", $products);
     }
 
     public function show(int $id){

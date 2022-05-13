@@ -14,12 +14,18 @@ class Controller {
             require($file);
             $model = "PHPSHOP\Models\\" . $basePath;
              $model = new $model();
-             print_r($model);
+            // print_r($model);
         }
         
     }
 
     public function renderView($name, $data = []){
-        
+
+        $file = ROOT . "views/" . $name .  ".php";
+        if(file_exists($file)){
+            extract($data);
+            require($file);
+        }
+
     }
 }

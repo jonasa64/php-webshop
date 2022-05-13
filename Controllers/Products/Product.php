@@ -15,7 +15,8 @@ class Product extends Controller {
 
         $sql = "SELECT * FROM products";
         $result = \PHPSHOP\DB\DB::query($sql);
-        print_r($result->fetch_assoc());
+        //print_r($result->fetch_assoc());
+        $this->renderView("products", $result->fetch_assoc());
     }
 
     public function show(int $id){

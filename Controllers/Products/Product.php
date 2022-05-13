@@ -22,7 +22,8 @@ class Product extends Controller {
     }
 
     public function show(int $id){
-        $sql = "SELECT * FROM products WHERE id = ?";
+        $productModel = new ProductsProduct();
+        $product =  $productModel->get($id);
 
     }
 

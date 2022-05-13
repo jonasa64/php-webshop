@@ -19,6 +19,31 @@ class Product {
      */
     public function get($identifiers){
 
+      if(is_array($identifiers) && count($identifiers) == 0) return null;
+
+      if(!is_array($identifiers) && empty($identifiers)) return null;
+
+      if(is_array($identifiers) && count($identifiers) > 0){
+ 
+        $sql = "SELECT * FROM products WHERE id IN(" . implode(",", $identifiers) . ")";
+        $query = \PHPSHOP\DB\DB::query($sql);
+         $products = [];
+        while($row = $query->fetch_assoc()){
+          $this->id = $row["id"];
+          $this->name = $row["name"];
+          $this->price = $row["price"];
+          $this->description = $row["description"];
+          $this->image = $row["image_url"];
+          $this->status = $row["product_status"];
+          $this->quantityInStock = $row["quantity_in_stock"];
+         $products[] = $this;
+        }
+
+       return $products;
+      }
+
+
+
     }
 
 }

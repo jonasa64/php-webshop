@@ -45,12 +45,10 @@ class Product {
       }
 
       if(!is_array($identifiers) && is_int($identifiers)){
-
         $sql = "SELECT * FROM products WHERE id = ?";
         $query = \PHPSHOP\DB\DB::prepare($sql);
-        $query->bind_param("i", $identifiers);
-        $query->execute();
-
+       $query->bind_param("i", $identifiers);
+       $query->execute();
         while($row = $query->fetch()){
           $this->id = $row["id"];
           $this->name = $row["name"];

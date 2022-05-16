@@ -1,4 +1,5 @@
 <?php
+namespace PHPSHOP;
 
 class Connection
 {
@@ -12,11 +13,11 @@ class Connection
     public function getConnection(){
         try {
             if($this->conn == null){
-                $this->conn = new mysqli($this->dbHost, $this->dbUser, $this->dbPass,$this->dbName, 3307 );
+                $this->conn = new \mysqli($this->dbHost, $this->dbUser, $this->dbPass,$this->dbName, 3306 );
             }
 
             return $this->conn;
-        } catch (mysqli_sql_exception $exception){
+        } catch (\mysqli_sql_exception $exception){
             echo $exception->getMessage();
         }
 

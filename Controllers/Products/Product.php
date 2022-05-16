@@ -24,22 +24,25 @@ class Product extends Controller {
     public function show(int $id){
         $productModel = new ProductsProduct();
         $product =  $productModel->get($id);
+        $this->renderView("product", $product);
 
     }
 
     public function destroy(int $id){
-    $sql = "DELETE FROM products WHERE id = ?";
+        \PHPSHOP\DB\DB::delete("products", $id);
     }
 
-    public function edit(){
-
+    public function edit($id){
+        $productModel = new ProductsProduct();
+        $product = $productModel->get($id);
+        $this->renderView('editProduct', $product);
     }
 
     public function update(){
 
     }
 
-    public function delete(){
+    public function delete($id){
         
     }
 

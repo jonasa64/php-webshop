@@ -13,5 +13,6 @@ require(ROOT. 'Request.php');
 require(ROOT. 'Dispatcher.php');
 require(ROOT . 'DB/DB.php');
 require(ROOT. 'Connection.php');
+require(ROOT . 'Controllers/Controller.php');
 $dispatch = new Dispatcher();
 $dispatch->dispatch();

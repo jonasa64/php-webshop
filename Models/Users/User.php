@@ -35,6 +35,7 @@ class User {
         // Check if identifers is not array and not int
         if(!is_array($identifiers) && !is_int($identifiers)) return null;
 
+        // Check if there should be return multiple users
         if(is_array($identifiers) && count($identifiers) > 0){
             $users = [];
 
@@ -50,11 +51,26 @@ class User {
                 $users[] = $this;
             }
 
+            $query = null;
+
             return $users;
         }
 
+        // Check if there shoud be return on user
         if(!is_array($identifiers) && is_int($identifiers)){
 
+            $sql = "SELECT id, frist_name, last_name, email, is_admin FROM users WHERE id = ?";
+            $query = \PHPSHOP\DB\DB::prepare($sql);
+            $query->bind_param("i", $identifiers);
+            $query->execute();
+            while($row = $query->fetch()){
+                $this->id = $row["id"];
+                $this->firstName = $row["first_name"];
+                $this->lastName = $row["last_name"];
+                $this->email = $row["email"];
+                $this->isAdmin = $row["is_admin"];
+            }
+            $query = null;
             return $this;
         }
 
@@ -63,7 +79,15 @@ class User {
     }
 
     private function doesUsersExist(string $email) {
-    }
+
+        $sql = "SELECT count(*) as count FROM users WHERE email = ?";
+        $query = \PHPSHOP\DB\DB::prepare($sql);
+        $query->bind_param("s", $email);
+        $query->execute();
+        $count = $query->fetch()["count"];
+        $query = null;
+        return $count > 0;
+    } 
 
     public function getOrders($identifier){
         if(!isset($identifier) || empty($identifier))

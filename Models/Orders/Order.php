@@ -16,21 +16,47 @@ class Order {
      */
     public function get($identifiers){
         
-        if(!isset($identifiers) || empty($identifiers))
-            return null;
-
         // Check if identifiers is array and length is 0
-        if(is_array($identifiers) && count($identifiers) == 0)
-            return null;
-        // Check that identifers is int
-        if(is_int($identifiers) && !is_numeric($identifiers)){
+        if(is_array($identifiers) && count($identifiers) == 0) return null;
 
-        }
-            return null;
+        if(!is_array($identifiers) && empty($identifiers)) return null;
+       
+        // Check that identifers is int
+        if(!is_array($identifiers) && !is_int($identifiers)) return null;
+
         // check that identifers is array and have a length
         if(is_array($identifiers) && count($identifiers) > 0){
 
-        } 
+            $sql = "SELECT o.id as order_id, o.total_price, o.order_date, o.order_status, p.name, p.price, p.id, u.first_name, u.last_name, u.email, u.id as user_id FROM orders o 
+            INNER JOIN orderdetails od ON o.id = od.order_id 
+            INNER JOIN products p ON od.product_id = p.id INNER JOIN users u ON o.user_id = u.id WHERE o.id  IN(" . implode(",", $identifiers) . ")";
+            $query = \PHPSHOP\DB\DB::query($sql);
+            $orders = [];
+            while($row = $query->fetch_assoc()){
+
+            }
+
+            $query = null;
+
+            return $orders;
+
+        }
+        
+        if(!is_array($identifiers) && is_int($identifiers)){
+            $sql = "SELECT o.id as order_id, o.total_price, o.order_date, o.order_status, p.name, p.price, p.id, u.first_name, u.last_name, u.email, u.id as user_id FROM orders o 
+            INNER JOIN orderdetails od ON o.id = od.order_id 
+            INNER JOIN products p ON od.product_id = p.id INNER JOIN users u ON o.user_id = u.id WHERE o.id = ?";
+            $query = \PHPSHOP\DB\DB::prepare($sql);
+            $query->execute();
+            while($row = $query->fetch()){
+
+            }
+
+            $query = null;
+            return $this;
+        }
+
+        return null;
         
 
     }

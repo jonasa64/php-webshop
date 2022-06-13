@@ -65,7 +65,7 @@ class DB
 
 
     /**
-     * Undocumented function
+     * Update a db record 
      *
      * @param string $tableName  
      * @param array  $data        
@@ -104,7 +104,7 @@ class DB
      * 
      * @return \mysqli_stmt|false
      */
-    public static function prepare($sql)
+    public static function prepare(string $sql): \mysqli_stmt|false
     {
         $query = self::getConnect()->prepare($sql);
         return $query;
@@ -114,9 +114,9 @@ class DB
      *
      * @param string $sql 
      * 
-     * @return void
+     * @return \mysqli_result
      */
-    public static function query($sql)
+    public static function query(string $sql): \mysqli_result
     {
         $query = self::getConnect()->query($sql);
         return $query;

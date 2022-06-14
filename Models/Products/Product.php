@@ -89,14 +89,15 @@ class Product
    */
   public function delete($identifier)
   {
+    if (!isset($identifier)) return false;
+
     if (isset($identifier) && empty($identifier)) return false;
 
     if (isset($identifier) && !is_int($identifier)) return false;
 
-    if (isset($identifier) && is_int($identifier)) {
-    }
+    if ($this->get($identifier) === null) return false;
 
-    return false;
+    if (isset($identifier) && is_int($identifier)) return \PHPSHOP\DB\DB::delete("products", $identifier);
   }
 
   /**

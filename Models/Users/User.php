@@ -105,4 +105,24 @@ class User
         if (is_int($identifier) && is_numeric($identifier)) {
         }
     }
+
+
+    /**
+     * Update a user
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function update($data)
+    {
+    }
+    /**
+     * Delete user
+     *
+     * @param int $identifier
+     * @return bool
+     */
+    public function delete($identifier)
+    {
+    }
 }
